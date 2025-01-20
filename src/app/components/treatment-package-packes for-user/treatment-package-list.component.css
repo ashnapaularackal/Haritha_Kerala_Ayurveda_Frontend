@@ -1,0 +1,173 @@
+/* Container styles */
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'adobe-garamond-pro', serif;
+}
+
+/* Background styles */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/image18.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* Content styles */
+.content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* Heading styles */
+h2 {
+  font-family: 'adobe-garamond-pro', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 30px 0;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.5s ease-out;
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Package grid styles */
+.package-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Package card styles */
+.package-card {
+  width: calc(50% - 20px);
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card header styles */
+mat-card-header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 16px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Card title styles */
+mat-card-title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -1px;
+}
+
+/* Card content styles */
+mat-card-content {
+  padding: 16px;
+}
+
+mat-card-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+mat-card-content p strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Card actions styles */
+mat-card-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button styles */
+button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'adobe-garamond-pro', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .package-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .package-card {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  mat-card-title {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.875rem;
+    padding: 8px 16px;
+  }
+}

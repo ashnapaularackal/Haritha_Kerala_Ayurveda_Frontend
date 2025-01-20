@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haritha Kerala Ayurveda and Yoga Centre</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="app-container" [ngClass]="{'treatments-background': currentRoute === '/treatment'}">
+    <!-- Header -->
+    <header class="header">
+      <h2>Haritha Kerala Ayurveda and Yoga Centre</h2>
+      <nav>
+        <ul>
+          <li><a routerLink="/ayurveda">Home</a></li>
+          <li><a routerLink="/treatment">Treatment</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/availablepackages">Packages</a></li>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/register">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    
+      <!-- <div id="chatbot-icon" (click)="toggleChatbot()">
+        <img src="/assets/images/chatbot.png" alt="Chatbot Icon">
+      </div>
+      
+      <div id="chatbot-modal" class="chatbot-modal" [ngClass]="{'open': chatbotOpen}">
+        <div class="chatbot-header">
+          <span class="close" (click)="toggleChatbot()">&times;</span>
+          <h2>Ask Us</h2>
+        </div> -->
+        <app-registration-chatbot></app-registration-chatbot>
+      <!-- </div> -->
+    </main>
+    
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-section">
+        <h4 class="footer-heading"><a routerLink="/ayurveda">Ayurveda</a></h4>
+        <ul class="footer-links">
+          <li><a (click)="scrollToSection('what-is-ayurveda')">What is Ayurveda</a></li>
+          <li><a (click)="scrollToSection('why-it-works')">Why it works</a></li>
+          <li><a (click)="scrollToSection('how-it-works')">How it works</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-heading"><a routerLink="/treatment">Treatments</a></h4>
+        <ul class="footer-links">
+          <li><a href="#">Complete Detox</a></li>
+          <li><a href="#">Stress Management</a></li>
+          <li><a href="#">Weight Management</a></li>
+          <li><a href="#">Ayurveda Immunity Boosting</a></li>
+          <li><a href="#">Specific Ailments and Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-heading"><a routerLink="/treatment">Treatment Centers</a></h4>
+        <ul class="footer-links">
+          <li><a href="#">Kalari Kovilakom</a></li>
+          <li><a href="#">Kalari Rasayana</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-heading"><a routerLink="/treatment">Enquiry</a></h4>
+        <ul class="footer-links">
+          <li><a href="#">Kalari Kovilakom</a></li>
+          <li><a href="#">Kalari Rasayana</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-heading"><a routerLink="/treatment">Gallery</a></h4>
+        <ul class="footer-links">
+          <li><a href="#">Kalari Rasayana</a></li>
+          <li><a href="#">Kalari Kovilakom</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <img src="assets/images/image6.jpg" alt="Logo" class="footer-logo">
+        <div class="footer-copyright">
+          <p>© 2024 Haritha Kerala Ayurveda and Yoga Centre</p>
+          <p><a href="#">Privacy policy</a></p>
+          <p><a href="https://www.linkedin.com/in/ashnapaularackal/">AP & co</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

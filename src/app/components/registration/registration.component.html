@@ -1,0 +1,124 @@
+<div class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-content">
+    <button class="close-button" (click)="closeSidebar()">X</button>
+      <h2>Book Your Package</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <!-- Full Name -->
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="usersName" type="text" placeholder="Enter your full name" aria-describedby="nameHelp">
+          <mat-hint id="nameHelp">Your full name as per official records.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Email Address -->
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="Enter your email address" aria-describedby="emailHelp">
+          <mat-hint id="emailHelp">We'll use this to send you booking confirmations and updates.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Phone Number -->
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="contact_number" type="text" placeholder="Enter your phone number" aria-describedby="phoneHelp">
+          <mat-hint id="phoneHelp">Include your country code (e.g., +1 for Canada).</mat-hint>
+        </mat-form-field>
+        
+        <!-- Age -->
+        <mat-form-field appearance="outline">
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age" type="number" placeholder="Enter your age" aria-describedby="ageHelp">
+          <mat-hint id="ageHelp">Your age helps us tailor the treatment to your needs.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Gender -->
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender" placeholder="Select your gender" aria-describedby="genderHelp">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+          <mat-hint id="genderHelp">Select your gender for personalized treatment.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Country of Residence -->
+        <mat-form-field appearance="outline">
+          <mat-label>Country of Residence</mat-label>
+          <input matInput formControlName="country_of_residence" type="text" placeholder="Enter your country of residence" aria-describedby="countryHelp">
+          <mat-hint id="countryHelp">Your current country of residence.</mat-hint>
+        </mat-form-field>
+        
+        <!-- City -->
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" type="text" placeholder="Enter your city" aria-describedby="cityHelp">
+          <mat-hint id="cityHelp">City where you currently live.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Previously Visited -->
+        <mat-form-field appearance="outline">
+          <mat-label>Previously Visited</mat-label>
+          <input matInput formControlName="visited" type="text" placeholder="Have you visited us before?" aria-describedby="visitedHelp">
+          <mat-hint id="visitedHelp">Let us know if you have visited us before.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Allergies -->
+        <mat-form-field appearance="outline">
+          <mat-label>Allergies</mat-label>
+          <input matInput formControlName="allergy" type="text" placeholder="List any allergies (if applicable)" aria-describedby="allergyHelp">
+          <mat-hint id="allergyHelp">Mention any allergies to help us prepare better.</mat-hint>
+        </mat-form-field>
+        
+        <!-- WhatsApp Number -->
+        <mat-form-field appearance="outline">
+          <mat-label>WhatsApp Number</mat-label>
+          <input matInput formControlName="whatsupnumber" type="text" placeholder="Enter your WhatsApp number" aria-describedby="whatsappHelp">
+          <mat-hint id="whatsappHelp">Provide your WhatsApp number for easy communication.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Contact via WhatsApp -->
+        <mat-form-field appearance="outline">
+          <mat-label>Contact via WhatsApp?</mat-label>
+          <mat-select formControlName="contactwhatsup" placeholder="Can we contact you via WhatsApp?" aria-describedby="contactWhatsAppHelp">
+            <mat-option value="yes">Yes</mat-option>
+            <mat-option value="no">No</mat-option>
+          </mat-select>
+          <mat-hint id="contactWhatsAppHelp">Let us know if we can contact you via WhatsApp.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Choose Treatment -->
+        <mat-form-field appearance="outline">
+          <mat-label>Choose Treatment</mat-label>
+          <mat-select formControlName="treatment" (selectionChange)="onTreatmentChange($event.value)" placeholder="Select your desired treatment" aria-describedby="treatmentHelp">
+            <mat-option *ngFor="let treatment of treatments" [value]="treatment.id">{{ treatment.name }}</mat-option>
+          </mat-select>
+          <mat-hint id="treatmentHelp">Choose a treatment package that suits you best.</mat-hint>
+        </mat-form-field>
+
+        <!-- Preferred Date -->
+        <mat-form-field appearance="outline">
+          <mat-label>Preferred Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date" aria-describedby="dateHelp">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint id="dateHelp">Select a preferred date for your treatment.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Preferred Time Slot -->
+        <mat-form-field appearance="outline">
+          <mat-label>Preferred Time Slot</mat-label>
+          <mat-select formControlName="timeSlot" placeholder="Select your preferred time slot" aria-describedby="timeSlotHelp">
+            <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.id">{{ timeSlot.startTime }} - {{ timeSlot.endTime }}</mat-option>
+          </mat-select>
+          <mat-hint id="timeSlotHelp">Choose a suitable time slot for your convenience.</mat-hint>
+        </mat-form-field>
+        
+        <!-- Submit Button -->
+        <div class="submit-button-container">
+          <button  type="submit">Book Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+

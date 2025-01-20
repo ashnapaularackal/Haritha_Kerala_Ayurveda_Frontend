@@ -1,0 +1,71 @@
+<!-- Importing Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="login-background"></div>
+<div class="container">
+  <div class="dashboard-container">
+    <h2>{{ isEdit ? 'Edit' : 'Add' }} Treatment Package</h2>
+    <div class="form-card">
+      <form [formGroup]="packageForm" (ngSubmit)="savePackage()">
+
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" type="text" formControlName="name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description" required></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="price">Price</label>
+          <input id="price" type="number" formControlName="price" required>
+        </div>
+
+        <h3>Time Slots</h3>
+        <div formArrayName="timeSlots">
+          <div *ngFor="let slot of timeSlots.controls; let i = index" [formGroupName]="i" class="time-slot">
+            <div class="form-field">
+              <label for="startTime">Start Time (specify AM/PM)</label>
+              <input id="startTime" type="text" formControlName="startTime" required>
+            </div>
+
+            <div class="form-field">
+              <label for="endTime">End Time (specify AM/PM)</label>
+              <input id="endTime" type="text" formControlName="endTime" required>
+            </div>
+
+            <button type="button" class="delete-button" (click)="removeTimeSlot(i)">Delete</button>
+          </div>
+          <button type="button" (click)="addTimeSlot()">Add Time Slot</button>
+        </div>
+
+        <h3>Images</h3>
+        <div formArrayName="images">
+          <div *ngFor="let image of images.controls; let i = index" [formGroupName]="i" class="image-input">
+            <div class="form-field">
+              <label for="url">Image URL</label>
+              <input id="url" type="text" formControlName="url" required>
+            </div>
+
+            <button type="button" class="delete-button" (click)="removeImage(i)">Delete</button>
+          </div>
+          <button type="button" (click)="addImage()">Add Image</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Save</button>
+        </div>
+        <div class="action-buttons">
+          <div class="form-actions">
+            <button type="button" (click)="dashboard()">Cancel</button>
+          </div>
+        
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

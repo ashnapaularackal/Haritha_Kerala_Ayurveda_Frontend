@@ -1,0 +1,138 @@
+/* Form Styles */
+form {
+  display: grid;
+  gap: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: #2e7d32;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #125030;
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+}
+
+/* Heading Styles */
+h2 {
+  font-family: 'adobe-garamond-pro', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 45px;
+  letter-spacing: -5px;
+  color: #2e7d32;
+  margin: 0 0 50px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mat-form-field {
+    margin-bottom: 0;
+  }
+
+  button[type="submit"] {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .registration-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Optional: Improve Readability */
+::ng-deep .mat-form-field-label {
+  font-weight: 500;
+}
+
+::ng-deep .mat-select-value-text {
+  font-weight: 500;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: #f9f9f9;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -600px; /* Increased width */
+  width: 600px; /* Increased width */
+  height: 100%;
+  background-color: white;
+  transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  z-index: 1000;
+  font-family: 'adobe-garamond-pro', serif;
+  font-style: italic;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Blur background when sidebar is open */
+.blur-background {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+}

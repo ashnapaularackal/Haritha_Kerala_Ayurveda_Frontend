@@ -1,0 +1,33 @@
+<div class="login-page-container">
+  <div class="login-background"></div>
+  <div class="login-content">
+    <div class="container" *ngIf="package">
+      <div class="left-section">
+        <h2>{{ package.name }}</h2>
+        <div class="package-details">
+          <p>{{ package.description }}</p>
+          <p>Price: {{ package.price | currency }}</p>
+
+          <h3>Time Slots</h3>
+          <ul>
+            <li *ngFor="let slot of package.timeSlots">{{ slot.startTime }} - {{ slot.endTime }}</li>
+          </ul>
+
+          <!-- Booking Button -->
+          <button class="booking-button" (click)="booking()">Book Now</button>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <div class="image-gallery">
+          <div *ngFor="let image of package.images" class="image-item">
+            <img [src]="image.url" alt="Package image" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancel Button Positioned at Bottom Right -->
+      <button class="cancel-button" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>

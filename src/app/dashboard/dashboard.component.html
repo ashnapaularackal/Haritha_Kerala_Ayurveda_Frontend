@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haritha Kerala Ayurveda and Yoga Centre</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="login-page-container">
+    <div class="login-background"></div>
+    <div class="login-content">
+      <div class="container shadow-lg p-4 bg-white rounded">
+        <div class="d-flex justify-content-center align-items-center mb-3">
+          <h2 class="text-success">Registration Details</h2>
+        </div>
+        <div class="action-container">
+          <div class="filter-container">
+            <input type="text" [(ngModel)]="filterText" (input)="applyFilter()" placeholder="Filter registrations...">
+          </div>
+          <div class="button-container">
+            <button class="btn btn-outline-success" (click)="downloadDetails()">
+              <i class="fas fa-download"></i>
+            </button>
+            <button (click)="viewPackages()" class="btn btn-success mr-2">Packages</button>
+            <button (click)="newBooking()" class="btn btn-success mr-2">New Booking</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th (click)="sortData('userCode', sortDirection === 'asc' ? 'desc' : 'asc')">User Code</th>
+                <th (click)="sortData('usersName', sortDirection === 'asc' ? 'desc' : 'asc')">User Name</th>
+                <th (click)="sortData('email', sortDirection === 'asc' ? 'desc' : 'asc')">Email</th>
+                <th (click)="sortData('contact_number', sortDirection === 'asc' ? 'desc' : 'asc')">Contact Number</th>
+                <th (click)="sortData('age', sortDirection === 'asc' ? 'desc' : 'asc')">Age</th>
+                <th (click)="sortData('date', sortDirection === 'asc' ? 'desc' : 'asc')">Date</th>
+                <th (click)="sortData('gender', sortDirection === 'asc' ? 'desc' : 'asc')">Gender</th>
+                <th (click)="sortData('nationality', sortDirection === 'asc' ? 'desc' : 'asc')">Nationality</th>
+                <th (click)="sortData('country_of_residence', sortDirection === 'asc' ? 'desc' : 'asc')">Country of Residence</th>
+                <th (click)="sortData('city', sortDirection === 'asc' ? 'desc' : 'asc')">City</th>
+                <th (click)="sortData('visited', sortDirection === 'asc' ? 'desc' : 'asc')">Visited</th>
+                <th (click)="sortData('allergy', sortDirection === 'asc' ? 'desc' : 'asc')">Allergy</th>
+                <th (click)="sortData('whatsupnumber', sortDirection === 'asc' ? 'desc' : 'asc')">WhatsApp Number</th>
+                <th (click)="sortData('contactwhatsup', sortDirection === 'asc' ? 'desc' : 'asc')">Contact WhatsApp</th>
+                <th (click)="sortData('treatment.name', sortDirection === 'asc' ? 'desc' : 'asc')">Treatment</th>
+                <th (click)="sortData('timeSlot.startTime', sortDirection === 'asc' ? 'desc' : 'asc')">Time Slot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let registration of filteredRegistrations">
+                <td>{{ registration.userCode }}</td>
+                <td>{{ registration.usersName }}</td>
+                <td>{{ registration.email }}</td>
+                <td>{{ registration.contact_number }}</td>
+                <td>{{ registration.age }}</td>
+                <td>{{ registration.date | date:'dd/MM/yyyy' }}</td>
+                <td>{{ registration.gender }}</td>
+                <td>{{ registration.nationality }}</td>
+                <td>{{ registration.country_of_residence }}</td>
+                <td>{{ registration.city }}</td>
+                <td>{{ registration.visited }}</td>
+                <td>{{ registration.allergy }}</td>
+                <td>{{ registration.whatsupnumber }}</td>
+                <td>{{ registration.contactwhatsup }}</td>
+                <td>{{ registration.treatment?.name }}</td>
+                <td>{{ registration.timeSlot?.startTime }} - {{ registration.timeSlot?.endTime }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

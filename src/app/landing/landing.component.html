@@ -1,0 +1,28 @@
+<div class="landing-container">
+  <h1 class="landing-header">Welcome to Haritha Kerala Ayurveda and Yoga Centre</h1>
+  <p class="landing-content">where ancient wisdom meets modern healing. We offer authentic Ayurvedic treatments and therapies along with yoga, meditation, and pranayama to promote holistic well-being.
+
+    We believe in the transformative power of Ayurveda, the ancient science of life, to transform lives naturally. Our treatments are rooted in traditional Ayurvedic principles, aimed at harmonizing the body, mind, and soul.
+    
+    Our mission is to help you achieve optimal health and wellness through the timeless wisdom of Ayurveda. We are committed to guiding you on your journey to a balanced and harmonious life.</p>
+  <div class="landing-images">
+    <div *ngFor="let image of images" class="flip-container" (click)="flipImage(image)">
+      <div class="flipper" [class.flipped]="image.flipped">
+        <div class="front">
+          <img [src]="image.src" [alt]="image.alt" class="landing-image">
+        </div>
+        <div class="back">
+          <p>{{ image.text }}</p>
+          <p>{{ image.details }}</p>
+          <button class="info-button" (click)="navigateTo(image.path); $event.stopPropagation();">More Info</button>
+        </div>
+      </div>
+      <div class="image-label">{{ image.label }}</div>
+    </div>
+ 
+  </div>
+</div>
+
+<br>
+<br>
+<br>

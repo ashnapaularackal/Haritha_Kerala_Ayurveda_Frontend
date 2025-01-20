@@ -1,0 +1,30 @@
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" (click)="toggleChat()">
+  <mat-icon>chat</mat-icon>
+</div>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container" *ngIf="chatVisible">
+  <div class="chatbot-header">
+    Ask us
+  </div>
+  <div class="messages-container" #messageContainer>
+    <div *ngFor="let message of messages" [ngClass]="{'message': true, 'user': message.sender === 'user', 'bot': message.sender === 'bot'}">
+      <div class="bubble" [innerHTML]="message.text"></div>
+    </div>
+  </div>
+  <div class="input-container">
+    <input *ngIf="!isSpecialInput" type="text" [(ngModel)]="userInput" placeholder="Type your message..." (keyup.enter)="handleUserInput()">
+    <mat-form-field *ngIf="isSpecialInput && isDropdown">
+      <mat-select [(ngModel)]="selectedOption" (selectionChange)="handleSpecialInput()">
+        <mat-option *ngFor="let option of currentOptions" [value]="option.value">{{ option.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="isSpecialInput && isDateInput">
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="handleSpecialInput()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button class="send-button" (click)="handleUserInput()">Send</button>
+  </div>
+</div>

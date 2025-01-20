@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="title">{{ isEdit ? 'Edit Package' : 'Add Package' }}</h2>
+  
+  <form [formGroup]="packageForm" (ngSubmit)="savePackage()" class="package-form">
+    <div class="form-section">
+      <h3 class="section-title">Basic Information</h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price" class="form-control" />
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <h3 class="section-title">Time Slots</h3>
+      <div formArrayName="timeSlots" class="time-slots">
+        <div *ngFor="let timeSlot of timeSlots.controls; let i = index" class="time-slot">
+          <div [formGroupName]="i" class="time-slot-inputs">
+            <input type="text" formControlName="startTime" placeholder="Start Time" class="form-control" />
+            <input type="text" formControlName="endTime" placeholder="End Time" class="form-control" />
+          </div>
+          <button type="button" (click)="removeTimeSlot(i)" class="btn btn-danger btn-sm">Remove</button>
+        </div>
+        <button type="button" (click)="addTimeSlot()" class="btn btn-primary btn-sm">Add Time Slot</button>
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <h3 class="section-title">Images</h3>
+      <div formArrayName="images" class="images">
+        <div *ngFor="let image of images.controls; let i = index" class="image-input">
+          <div [formGroupName]="i" class="image-url-input">
+            <input type="text" formControlName="url" placeholder="Image URL" class="form-control" />
+          </div>
+          <button type="button" (click)="removeImage(i)" class="btn btn-danger btn-sm">Remove</button>
+        </div>
+        <button type="button" (click)="addImage()" class="btn btn-primary btn-sm">Add Image</button>
+      </div>
+    </div>
+  
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">{{ isEdit ? 'Update' : 'Save' }}</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,188 @@
+/* Container Styling */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Background Styling */
+.login-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/image18.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* Card Container Styling */
+.dashboard-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  animation: fadeIn 0.5s ease-out;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.dashboard-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Animation for Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Styling */
+h2, h3 {
+  font-family: 'adobe-garamond-pro', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #2e7d32;
+  text-align: center;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  animation: slideDown 0.5s ease-out;
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #2e7d32;
+}
+
+/* Animation for Slide Down */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form Field Styling */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2e7d32;
+}
+
+.form-field input,
+.form-field textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.delete-button:hover {
+  text-decoration: underline;
+}
+
+/* Additional Styling for Time Slots and Images */
+.time-slot, .image-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.time-slot .form-field,
+.image-input .form-field {
+  flex: 1;
+}
+
+.action-buttons {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* Cancel Button */
+.action-buttons button {
+  background-color: #808080; /* Ash color */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin-left: 10px; /* Add some space between buttons if they're next to each other */
+}
+
+.action-buttons button:hover {
+  background-color: #6c6c6c; /* Darker ash on hover */
+}
+
+.action-buttons button:active {
+  transform: scale(0.98);
+}
+
